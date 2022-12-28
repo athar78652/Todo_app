@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
-import { MdOutlineEdit } from "react-icons/md";
+import { MdOutlineEdit, MdDelete } from "react-icons/md";
 
-function TodoList({ todos, updateTodo }) {
+function TodoList({ todos, updateTodo, removeTodo, completeTodo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -25,9 +25,15 @@ function TodoList({ todos, updateTodo }) {
       {todos.map((todo, index) => (
         <>
           <div key={index}>
-            <div key={todo.id}>{todo.text}</div>
+            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+              {todo.text}
+            </div>
           </div>
           <div>
+            <MdDelete
+              onClick={() => removeTodo(todo.id)}
+              className="delete-icon"
+            />
             <MdOutlineEdit
               onClick={() => setEdit({ id: todo.id, value: todo.text })}
               className="edit-icon"
