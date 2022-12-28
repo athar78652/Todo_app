@@ -6,20 +6,21 @@ function Todo() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
-      return;
-    }
-
     const newTodos = [todo, ...todos];
-
     setTodos(newTodos);
     console.log(...todos);
+  };
+
+  const updateTodo = (todoId, newValue) => {
+    setTodos((prev) =>
+      prev.map((item) => (item.id === todoId ? newValue : item))
+    );
   };
   return (
     <div>
       <h1>Add your Plan for Today?</h1>
       <TodoForm onSubmit={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} updateTodo={updateTodo} />
     </div>
   );
 }
