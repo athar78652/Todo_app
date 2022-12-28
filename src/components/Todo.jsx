@@ -35,7 +35,7 @@ function Todo() {
 
   return (
     <div>
-      <h1>Add your Plan for Today?</h1>
+      <h1 className="header">Add your Plan for Today?</h1>
       <TodoForm onSubmit={addTodo} />
       <TodoList
         todos={todos}

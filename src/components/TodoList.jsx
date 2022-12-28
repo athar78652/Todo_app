@@ -20,30 +20,29 @@ function TodoList({ todos, updateTodo, removeTodo, completeTodo }) {
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return (
-    <div>
-      {todos.map((todo, index) => (
-        <>
-          <div key={index}>
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-              {todo.text}
-            </div>
-          </div>
-          <div>
-            <MdDelete
-              onClick={() => removeTodo(todo.id)}
-              className="delete-icon"
-            />
-            <MdOutlineEdit
-              onClick={() => setEdit({ id: todo.id, value: todo.text })}
-              className="edit-icon"
-            />
-          </div>
-        </>
-      ))}
-      ;
-    </div>
-  );
+  return todos.map((todo, index) => (
+    <>
+      <div
+        className={todo.isComplete ? "todo-complete" : "todo-container"}
+        key={index}
+      >
+        <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+          {todo.text}
+        </div>
+
+        <div className="icons">
+          <MdDelete
+            onClick={() => removeTodo(todo.id)}
+            className="delete-icon"
+          />
+          <MdOutlineEdit
+            onClick={() => setEdit({ id: todo.id, value: todo.text })}
+            className="edit-icon"
+          />
+        </div>
+      </div>
+    </>
+  ));
 }
 
 export default TodoList;
