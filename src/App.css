@@ -1,21 +1,27 @@
 /*css for app.jsx */
+
+body{
+  background: linear-gradient(to right bottom, #e1b382,#c89666);
+}
 .container{
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 520px;
+    width: 420px;
     min-height: 600px;
-    background:white;
+    background:#12343b;
     text-align: center;
-    margin: 90px auto;
+    margin: 20px auto;
     border-radius: 10px;
     padding-bottom: 32px;
+    box-shadow: 3px 6px 40px #000;
 }
 
 /* css for Todo.jsx */
 .header{
   margin: 32px 0;
   font-size: 24px;
+  color: #fff;
 }
 
 /* css for TodoForm.jsx */
@@ -28,7 +34,7 @@
     margin: 10px;
     border-radius: 5px;
     border: 2px solid #5d0cff;
-    width: 320px;
+    width: 220px;
     background: transparent;
     color:black;    
 }
@@ -75,7 +81,7 @@ display: flex;
 
   padding: 16px;
   border-radius: 5px;
-  width: 380px;
+  width: 280px;
 }
 
 .todo-complete{
